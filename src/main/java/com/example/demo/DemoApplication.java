@@ -36,6 +36,7 @@ Cadastrar uma escola
 Remover uma escola (somente se ela não tiver cursos)
 Alterar os dados de uma escola (Somente 2 dados/atributos podem ser alterados)
 Listar todos os cursos de uma escola
+
 Curso:
 
 Cadastrar um curso (sempre associar o curso a uma escola).

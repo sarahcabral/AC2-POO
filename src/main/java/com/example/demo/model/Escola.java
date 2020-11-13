@@ -1,16 +1,14 @@
 package com.example.demo.model;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Escola {
     private int escolaId;
     private String nomeEscola;
     private int qtdAlunos;
     private String endereco;
-    private String slogan;
     private boolean publica;
-    private Date dataFundacao;
+    private int anoFundacao;
     private ArrayList<Curso> cursos = new ArrayList<Curso>();
 
     public int getEscolaId() {
@@ -45,14 +43,6 @@ public class Escola {
         this.endereco = endereco;
     }
 
-    public String getSlogan() {
-        return slogan;
-    }
-
-    public void setSlogan(String slogan) {
-        this.slogan = slogan;
-    }
-
     public boolean isPublica() {
         return publica;
     }
@@ -69,19 +59,19 @@ public class Escola {
         this.cursos = cursos;
     }
 
-    public Date getDataFundacao() {
-        return dataFundacao;
+    public int getAnoFundacao() {
+        return anoFundacao;
     }
 
-    public void setDataFundacao(Date dataFundacao) {
-        this.dataFundacao = dataFundacao;
+    public void setAnoFundacao(int anoFundacao) {
+        this.anoFundacao = anoFundacao;
     }
 
-    @Override
-    public String toString() {
-        return "Escola [dataFundacao=" + dataFundacao + ", endereco=" + endereco + ", escolaId=" + escolaId
-                + ", nomeEscola=" + nomeEscola + ", publica=" + publica + ", qtdAlunos=" + qtdAlunos + ", slogan="
-                + slogan + "]";
+	@Override
+	public String toString() {
+		return "Escola [anoFundacao=" + anoFundacao + ", endereco=" + endereco + ", escolaId=" + escolaId
+				+ ", nomeEscola=" + nomeEscola + ", publica=" + publica + ", qtdAlunos=" + qtdAlunos + "]";
     }
-    
 }
+
+

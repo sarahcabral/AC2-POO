@@ -1,7 +1,7 @@
 package com.example.demo.model;
 
 public class Curso {
-    private int cursoID;
+    private int cursoId;
     private String nomeCurso;
     private Escola nomeEscola;
     private float carga_horaria;
@@ -12,12 +12,12 @@ public class Curso {
 
 
 
-    public int getCursoID() {
-        return cursoID;
+    public int getCursoId() {
+        return cursoId;
     }
 
-    public void setCursoID(int cursoID) {
-        this.cursoID = cursoID;
+    public void setCursoId(int cursoId) {
+        this.cursoId = cursoId;
     }
 
     public String getNomeCurso() {
@@ -78,7 +78,7 @@ public class Curso {
 
     @Override
     public String toString() {
-        return "Curso [carga_horaria=" + carga_horaria + ", cursoID=" + cursoID + ", descricao=" + descricao
+        return "Curso [carga_horaria=" + carga_horaria + ", cursoId=" + cursoId + ", descricao=" + descricao
                 + ", duracao_meses=" + duracao_meses + ", eletiva=" + eletiva + ", mesalidade=" + mesalidade
                 + ", nomeCurso=" + nomeCurso + ", nomeEscola=" + nomeEscola + "]";
     }
