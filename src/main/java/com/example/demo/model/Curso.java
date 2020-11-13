@@ -3,7 +3,7 @@ package com.example.demo.model;
 public class Curso {
     private int cursoId;
     private String nomeCurso;
-    private Escola nomeEscola;
+    private Escola escola;
     private float carga_horaria;
     private boolean eletiva;        //Curso obrigatorio ou opcional
     private float mesalidade;
@@ -28,12 +28,12 @@ public class Curso {
         this.nomeCurso = nomeCurso;
     }
 
-    public Escola getNomeEscola() {
-        return nomeEscola;
+    public Escola getEscola() {
+        return escola;
     }
 
-    public void setNomeEscola(Escola nomeEscola) {
-        this.nomeEscola = nomeEscola;
+    public void setEscola(Escola escola) {
+        this.escola = escola;
     }
 
     public float getCarga_horaria() {
@@ -80,7 +80,7 @@ public class Curso {
     public String toString() {
         return "Curso [carga_horaria=" + carga_horaria + ", cursoId=" + cursoId + ", descricao=" + descricao
                 + ", duracao_meses=" + duracao_meses + ", eletiva=" + eletiva + ", mesalidade=" + mesalidade
-                + ", nomeCurso=" + nomeCurso + ", nomeEscola=" + nomeEscola + "]";
+                + ", nomeCurso=" + nomeCurso + ", Escola_Id=" + escola.getEscolaId() + "]";
     }
 
 
