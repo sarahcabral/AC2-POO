@@ -11,19 +11,19 @@
 
 3. Implemente as seguintes funcionalidades (endpoints) nos Controladores:
 
-Escola:
+**Escola:
 
-  Listar todas as escolas
-  Listar uma escola pelo código
-  Cadastrar uma escola
-  Remover uma escola (somente se ela não tiver cursos)
-  Alterar os dados de uma escola (Somente 2 dados/atributos podem ser alterados)
-  Listar todos os cursos de uma escola
+  *Listar todas as escolas
+  *Listar uma escola pelo código
+  *Cadastrar uma escola
+  *Remover uma escola (somente se ela não tiver cursos)
+  *Alterar os dados de uma escola (Somente 2 dados/atributos podem ser alterados)
+  *Listar todos os cursos de uma escola
   
-Curso:
+**Curso:
 
-  Cadastrar um curso (sempre associar o curso a uma escola).
-  Listar todos os cursos.
-  Listar um curso pelo código.
-  Remover um curso
-  Alterar um curso (somente 1 dado do curso poderá ser alterado).
+  *Cadastrar um curso (sempre associar o curso a uma escola).
+  *Listar todos os cursos.
+  *Listar um curso pelo código.
+  *Remover um curso
+  *Alterar um curso (somente 1 dado do curso poderá ser alterado).
