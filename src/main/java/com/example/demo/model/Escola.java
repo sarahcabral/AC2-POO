@@ -67,6 +67,10 @@ public class Escola {
         this.anoFundacao = anoFundacao;
     }
 
+    public boolean addCurso(Curso curso) {
+        return cursos.add(curso);
+    }
+
 	@Override
 	public String toString() {
 		return "Escola [anoFundacao=" + anoFundacao + ", endereco=" + endereco + ", escolaId=" + escolaId

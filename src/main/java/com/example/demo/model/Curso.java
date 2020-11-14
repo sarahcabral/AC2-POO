@@ -10,7 +10,12 @@ public class Curso {
     private int duracao_meses;
     private String descricao;
 
+    public Curso(int cursoId) {
+        this.cursoId = cursoId;
+    }
 
+    public Curso() {
+    }
 
     public int getCursoId() {
         return cursoId;
@@ -82,7 +87,6 @@ public class Curso {
                 + ", duracao_meses=" + duracao_meses + ", eletiva=" + eletiva + ", mesalidade=" + mesalidade
                 + ", nomeCurso=" + nomeCurso + ", Escola_Id=" + escola.getEscolaId() + "]";
     }
-
 
 
     

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class EscolaRepository {
     
-    private int nextID;
+    private int nextId;
     private ArrayList <Escola> escolas;
 
     @PostConstruct
@@ -28,7 +28,7 @@ public class EscolaRepository {
 
         escolas = new ArrayList<Escola>();
         escolas.add(es);
-        nextID = 2;
+        nextId = 2;
 
     }
 
@@ -43,7 +43,13 @@ public class EscolaRepository {
         }
         return Optional.empty();
     }
-    
+
+    public Escola salvar(Escola escola) {
+        escola.setEscolaId(nextId++);
+        escolas.add(escola);
+        return escola;
+    }
+
    
 
 }

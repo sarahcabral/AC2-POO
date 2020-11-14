@@ -1,6 +1,9 @@
 package com.example.demo.repository;
 
-import javax.annotation.PostConstruct;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
 import com.example.demo.model.Curso;
 import org.springframework.stereotype.Component;
 
@@ -8,23 +11,26 @@ import org.springframework.stereotype.Component;
 public class CursoRepository {
 
     private int nextId;
-    
-    @PostConstruct
-    public void init() {
-        Curso cs = new Curso();
-
-        cs.setNomeCurso("Automacao Industrial");
-        cs.setDescricao("Curso integrado ao Ensino médio");
-        cs.setDuracao_meses(36);
-        cs.setMesalidade(0);
-        cs.setEletiva(false);
-        cs.setCarga_horaria(400);
-        cs.setCursoId(1);
-        cs.setEscola();
-        nextId = 2;
+    private ArrayList<Curso> cursos = new ArrayList<Curso>();
         
-        
-
+    public List<Curso> getAllCursos(){
+        return cursos;
     }
-    
+
+    public Optional<Curso> getCursoById(int id){
+        for (Curso aux : cursos) {
+            if(aux.getCursoId() == id) {
+                return Optional.of(aux); 
+            }       
+        } 
+        return Optional.empty();
+    }
+
+    public Curso salvar(Curso curso) {
+        curso.setCursoId(nextId++);
+        cursos.add(curso);
+        return curso;
+    }
+
+
 }
