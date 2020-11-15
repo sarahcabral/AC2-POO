@@ -10,16 +10,16 @@ import org.springframework.stereotype.Component;
 @Component
 public class CursoRepository {
 
-    private int nextId = 1;
+    private int nextCodigo = 1;
     private ArrayList<Curso> cursos = new ArrayList<Curso>();
         
     public List<Curso> getAllCursos(){
         return cursos;
     }
 
-    public Optional<Curso> getCursoById(int id){
+    public Optional<Curso> getCursoByCodigo(int codigo){
         for (Curso aux : cursos) {
-            if(aux.getCursoId() == id) {
+            if(aux.getCursoId() == codigo) {
                 return Optional.of(aux); 
             }       
         } 
@@ -27,13 +27,13 @@ public class CursoRepository {
     }
 
     public Curso salvar(Curso curso) {
-        curso.setCursoId(nextId++);
+        curso.setCursoId(nextCodigo++);
         cursos.add(curso);
         return curso;
     }
 
     public Curso update(Curso curso) {
-        Curso aux = getCursoById(curso.getCursoId()).get();
+        Curso aux = getCursoByCodigo(curso.getCursoId()).get();
         if(aux != null) {
             aux.setDescricao(curso.getDescricao());
         }

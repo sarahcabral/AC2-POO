@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class EscolaRepository {
     
-    private int nextId = 1;
+    private int nextCodigo = 1;
     private ArrayList <Escola> escolas;
 
     @PostConstruct
@@ -28,7 +28,7 @@ public class EscolaRepository {
 
         escolas = new ArrayList<Escola>();
         escolas.add(es);
-        nextId = 2;
+        nextCodigo = 2;
 
     }
 
@@ -36,22 +36,22 @@ public class EscolaRepository {
         return escolas;
     }
 
-    public Optional <Escola> getEscolaById(int Id){
+    public Optional <Escola> getEscolaByCodigo(int codigo){
         for(Escola aux : escolas){
-            if(aux.getEscolaId() == Id)
+            if(aux.getEscolaId() == codigo)
                 return Optional.of(aux);
         }
         return Optional.empty();
     }
 
     public Escola salvar(Escola escola) {
-        escola.setEscolaId(nextId++);
+        escola.setEscolaId(nextCodigo++);
         escolas.add(escola);
         return escola;
     }
 
     public Escola update(Escola escola) {
-        Escola aux = getEscolaById(escola.getEscolaId()).get();
+        Escola aux = getEscolaByCodigo(escola.getEscolaId()).get();
         if(aux != null) {
             aux.setNomeEscola(escola.getNomeEscola());
             aux.setEndereco(escola.getEndereco());

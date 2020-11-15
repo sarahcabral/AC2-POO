@@ -23,8 +23,8 @@ public class EscolaService {
         return repositorio.getAllEscolas();
     }
     
-    public Escola getEscolaById(int id) {
-        Optional <Escola> op = repositorio.getEscolaById(id);
+    public Escola getEscolaByCodigo(int codigo) {
+        Optional <Escola> op = repositorio.getEscolaByCodigo(codigo);
         return op.orElseThrow( ()  -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Escola não cadastrada"));
 	}
     
@@ -49,9 +49,8 @@ public class EscolaService {
     }*/
 
 	public Escola update(Escola escola) {
-        getEscolaById(escola.getEscolaId());
+        getEscolaByCodigo(escola.getEscolaId());
         return repositorio.update(escola);
 	}
     
-    //return op.orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Cliente nao cadastrado: " + id));
 }
