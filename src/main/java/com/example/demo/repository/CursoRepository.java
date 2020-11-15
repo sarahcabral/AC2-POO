@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class CursoRepository {
 
-    private int nextId;
+    private int nextId = 1;
     private ArrayList<Curso> cursos = new ArrayList<Curso>();
         
     public List<Curso> getAllCursos(){

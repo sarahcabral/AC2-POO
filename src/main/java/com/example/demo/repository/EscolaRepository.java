@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class EscolaRepository {
     
-    private int nextId;
+    private int nextId = 1;
     private ArrayList <Escola> escolas;
 
     @PostConstruct
@@ -49,6 +49,20 @@ public class EscolaRepository {
         escolas.add(escola);
         return escola;
     }
+
+    public Escola update(Escola escola) {
+        Escola aux = getEscolaById(escola.getEscolaId()).get();
+        if(aux != null) {
+            aux.setNomeEscola(escola.getNomeEscola());
+            aux.setEndereco(escola.getEndereco());
+        }
+        return aux;
+    }
+
+	/*public Escola remove(Escola escolaById) {
+        if(escolaById.)
+        return 
+    }*/
 
    
 

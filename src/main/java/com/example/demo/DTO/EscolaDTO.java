@@ -1,27 +1,11 @@
-package com.example.demo.model;
+package com.example.demo.DTO;
 
-import java.util.ArrayList;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-public class Escola {
-    private int escolaId;
+public class EscolaDTO {
     private String nomeEscola;
     private int qtdAlunos;
     private String endereco;
     private boolean publica;
     private int anoFundacao;
-
-    @JsonIgnore
-    private ArrayList<Curso> cursos = new ArrayList<Curso>();
-
-    public int getEscolaId() {
-        return escolaId;
-    }
-
-    public void setEscolaId(int escolaId) {
-        this.escolaId = escolaId;
-    }
 
     public String getNomeEscola() {
         return nomeEscola;
@@ -55,14 +39,6 @@ public class Escola {
         this.publica = publica;
     }
 
-    public ArrayList<Curso> getCursos() {
-        return cursos;
-    }
-
-    public void setCursos(ArrayList<Curso> cursos) {
-        this.cursos = cursos;
-    }
-
     public int getAnoFundacao() {
         return anoFundacao;
     }
@@ -70,16 +46,5 @@ public class Escola {
     public void setAnoFundacao(int anoFundacao) {
         this.anoFundacao = anoFundacao;
     }
-
-    public boolean addCurso(Curso curso) {
-        return cursos.add(curso);
-    }
-
-	@Override
-	public String toString() {
-		return "Escola [anoFundacao=" + anoFundacao + ", endereco=" + endereco + ", escolaId=" + escolaId
-				+ ", nomeEscola=" + nomeEscola + ", publica=" + publica + ", qtdAlunos=" + qtdAlunos + "]";
-    }
+    
 }
-
-

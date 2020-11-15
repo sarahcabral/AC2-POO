@@ -30,13 +30,16 @@ public class CursoService {
         return op.orElseThrow( ()  -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Curso não cadastrado"));
     }
 
-    public Curso salvar(Curso curso, int idEscola) {
+    public Curso salvar(int idEscola, Curso curso) {
         Escola escola = escolaService.getEscolaById(idEscola);
         
         curso.setEscola(escola);
         escola.addCurso(curso);
 
         return repositorio.salvar(curso);
-
     }
+
+
+	
+    
 }
