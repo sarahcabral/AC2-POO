@@ -12,6 +12,7 @@ import com.example.demo.service.EscolaService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 //import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -84,6 +85,14 @@ public class EscolaController {
         UriComponents uriComponents = builder.path(request.getRequestURI()+"/"+curso.getCursoId()).build();
         return ResponseEntity.created(uriComponents.toUri()).build();
     }
+
+    @DeleteMapping("/{id}/cursos/{id}")
+    public ResponseEntity<Void> remove(@PathVariable int escolaId, @PathVariable int cursoId) {
+        Curso curso = cursoService.getCursoById(cursoId);
+        cursoService.remove(escolaId, curso);
+        return ResponseEntity.noContent().build();
+    }
+    
 
 
 

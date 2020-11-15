@@ -24,10 +24,11 @@ public class CursoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Curso> getEscolaById(@PathVariable int id) {
+    public ResponseEntity<Curso> getCursoById(@PathVariable int id) {
         Curso curso = servico.getCursoById(id);
         return ResponseEntity.ok(curso);
     }
+
     
 
 

@@ -39,6 +39,17 @@ public class CursoService {
         return repositorio.salvar(curso);
     }
 
+    public void remove(int idEscola, Curso curso) {
+        Escola escola = escolaService.getEscolaById(idEscola);
+        escola.apgCurso(curso);
+        repositorio.remove(curso);
+
+        
+    }
+    
+    
+
+
 
 	
     

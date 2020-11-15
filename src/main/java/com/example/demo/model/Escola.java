@@ -75,6 +75,10 @@ public class Escola {
         return cursos.add(curso);
     }
 
+    public boolean apgCurso(Curso curso) {
+        return cursos.remove(curso);
+    }
+
 	@Override
 	public String toString() {
 		return "Escola [anoFundacao=" + anoFundacao + ", endereco=" + endereco + ", escolaId=" + escolaId
