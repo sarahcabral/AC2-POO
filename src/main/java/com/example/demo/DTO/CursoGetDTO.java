@@ -20,6 +20,9 @@ public class CursoGetDTO {
         this.descricao = descricao;
     }
 
+    public CursoGetDTO() {
+    }
+
     public int getCursoId() {
         return cursoId;
     }
@@ -76,5 +79,6 @@ public class CursoGetDTO {
         this.descricao = descricao;
     }
 
+  
     
 }

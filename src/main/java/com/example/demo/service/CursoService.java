@@ -46,7 +46,6 @@ public class CursoService {
                                             );
         return dto;
     }
-   
 
     public List<Curso> getAllCursos(){
         return repositorio.getAllCursos();
@@ -55,6 +54,11 @@ public class CursoService {
     public Curso getCursoByCodigo(int codigo) {
         Optional <Curso> op = repositorio.getCursoByCodigo(codigo);
         return op.orElseThrow( ()  -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Curso não cadastrado"));
+    }
+    
+    public Curso update(Curso curso) {
+        getCursoByCodigo(curso.getCursoId());
+        return repositorio.update(curso);
     }
 
     public Curso salvar(int codigoEscola, Curso curso) {
@@ -73,10 +77,7 @@ public class CursoService {
         repositorio.remove(curso);
     }
 
-    public Curso update(Curso curso) {
-        getCursoByCodigo(curso.getCursoId());
-        return repositorio.update(curso);
-    }
+    
     
 
     

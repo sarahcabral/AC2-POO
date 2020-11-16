@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 public class Escola {
     private int escolaId;
     private String nomeEscola;

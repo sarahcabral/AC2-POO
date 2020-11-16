@@ -38,8 +38,8 @@ public class CursoController {
 
     @PutMapping("/{codigo}")
     public ResponseEntity<Curso> atualizar(@PathVariable int codigo, @RequestBody CursoDTO dto) {
-        Curso curso = servico.getCursoByCodigo(codigo);
-        curso = servico.fromDTO(dto);
+        Curso curso = servico.fromDTO(dto);
+        curso.setCursoId(codigo);
         curso = servico.update(curso);
         return ResponseEntity.ok(curso);
     }
