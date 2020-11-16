@@ -59,10 +59,10 @@ public class EscolaRepository {
         return aux;
     }
 
-	/*public Escola remove(Escola escolaById) {
-        if(escolaById.)
-        return 
-    }*/
+	public void remove(Escola escola) {
+        escolas.remove(escola);
+	}
+
 
    
 

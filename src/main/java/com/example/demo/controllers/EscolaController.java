@@ -12,6 +12,7 @@ import com.example.demo.service.EscolaService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -52,12 +53,12 @@ public class EscolaController {
         UriComponents uriComponents = builder.path(request.getRequestURI()+"/"+esc.getEscolaId()).build();                         
         return ResponseEntity.created(uriComponents.toUri()).build();
     }
-/*
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> remover(@PathVariable int id) {
-        escolaService.removeById(id);
+
+    @DeleteMapping("/{codigo}")
+    public ResponseEntity<Void> remover(@PathVariable int codigo) {
+        escolaService.removeByCodigo(codigo);
         return ResponseEntity.noContent().build();
-    }*/
+    }
 
     @PutMapping("/{codigo}")
     public ResponseEntity<Escola> atualizar(@PathVariable int codigo, @RequestBody EscolaDTO escolaDTO) {
@@ -68,8 +69,8 @@ public class EscolaController {
     }
 
     @GetMapping("/{codigo}/cursos")
-    public List<Curso> getCursosEscola(@PathVariable int id) {
-        Escola esc = escolaService.getEscolaByCodigo(id);
+    public List<Curso> getCursosEscola(@PathVariable int codigo) {
+        Escola esc = escolaService.getEscolaByCodigo(codigo);
         return esc.getCursos();
     }
 

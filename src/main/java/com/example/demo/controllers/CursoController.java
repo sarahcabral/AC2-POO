@@ -3,6 +3,7 @@ package com.example.demo.controllers;
 import java.util.List;
 
 import com.example.demo.DTO.CursoDTO;
+import com.example.demo.DTO.CursoGetDTO;
 import com.example.demo.model.Curso;
 import com.example.demo.service.CursoService;
 
@@ -29,23 +30,23 @@ public class CursoController {
     }
 
     @GetMapping("/{codigo}")
-    public ResponseEntity<Curso> getCursoByCodigo(@PathVariable int codigo) {
+    public ResponseEntity<CursoGetDTO> getCursoByCodigo(@PathVariable int codigo) {
         Curso curso = servico.getCursoByCodigo(codigo);
-        return ResponseEntity.ok(curso);
+        CursoGetDTO dto = servico.toDTO(curso);
+        return ResponseEntity.ok(dto);
     }
 
     @PutMapping("/{codigo}")
     public ResponseEntity<Curso> atualizar(@PathVariable int codigo, @RequestBody CursoDTO dto) {
-        Curso curso = new Curso();
+        Curso curso = servico.getCursoByCodigo(codigo);
         curso = servico.fromDTO(dto);
         curso = servico.update(curso);
         return ResponseEntity.ok(curso);
     }
     
     @DeleteMapping("/{codigo}")
-    public ResponseEntity<Void> remove(@PathVariable int codigo, @RequestBody Curso curso) {
-        curso = servico.getCursoByCodigo(codigo);
-        servico.removeByCodigo((curso.getEscola()).getEscolaId(), curso);
+    public ResponseEntity<Void> remove(@PathVariable int codigo) {
+        servico.removeByCodigo(codigo);
         return ResponseEntity.noContent().build();
     }
 

@@ -66,8 +66,9 @@ public class CursoService {
         return repositorio.salvar(curso);
     }
 
-    public void removeByCodigo(int codigoEscola, Curso curso) {
-        Escola escola = escolaService.getEscolaByCodigo(codigoEscola);
+    public void removeByCodigo(int codigoCurso) {
+        Curso curso = getCursoByCodigo(codigoCurso);
+        Escola escola = escolaService.getEscolaByCodigo((curso.getEscola()).getEscolaId());
         escola.apgCurso(curso);
         repositorio.remove(curso);
     }

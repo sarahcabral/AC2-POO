@@ -43,10 +43,16 @@ public class EscolaService {
         return escola;
     }
 
-	/*public void removeById(int id) {
-        int tam = repositorio.
-        repositorio.remove(getEscolaById(id));
-    }*/
+	public void removeByCodigo(int codigo) {
+        Escola esc = getEscolaByCodigo(codigo);
+        if(esc != null){
+            if(esc.getCursos().size() == 0) {
+                repositorio.remove(esc);
+            } else {
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"A escola possui cursos cadastrados - Não é possivel excluir a mesma");
+            }
+        }
+    }
 
 	public Escola update(Escola escola) {
         getEscolaByCodigo(escola.getEscolaId());
